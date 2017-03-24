@@ -1,0 +1,4 @@
+.message data-message-id=message.id
+  span= message.content
+  span.destroy_message X
+  span= link_to 'Edit', edit_message_path(message)
