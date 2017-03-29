@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app shows how manage actioncable easily and predictable.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+* `git clone https://github.com/IlyaUmanets/action_cable_crud`
+* `cd action_cable_crud`
+* `mv config/database.example.yml config/database.yml`
+* `bundle install`
+* `rake db:setup`
+* `rails s`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Go to http://localhost:3000/rooms/1 and duplicate this tab to see changes dynamically.
+Now you can create, remove (click X) and update message. Enjoy!
