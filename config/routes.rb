@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  root 'rooms#show'
+  resources :rooms, only: :show
 
   resources :messages
 

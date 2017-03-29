@@ -1,25 +1,17 @@
-App.room = App.cable.subscriptions.create "RoomChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+$ ->
+  App.room = App.cable.subscriptions.create {
+    channel: "RoomChannel", roomId: $('#messages').data('room-id') },
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+    received: (data) ->
+      appendMessage(data)
+      destroyMessage(data)
+      updateMessage(data)
 
-  received: (data) ->
-    if data['action'] == 'create'
-      $('#messages').append data['message']
-    else if data['action'] == 'destroy'
-      message = $("*[data-message-id=#{data['id']}]")
-      message.remove();
-    else if data['action'] == 'update'
-      message = $("*[data-message-id=#{data['id']}]")
-      message.html(data['message'])
+    speak: (content) ->
+      @perform 'speak', content: content
 
-  speak: (message) ->
-    @perform 'speak', message: message
-
-  destroy: (id) ->
-    @perform 'destroy', id: id
+    destroy: (id) ->
+      @perform 'destroy', id: id
 
 $(document).on 'keypress', '#message_content', (event) ->
   if event.keyCode is 13
@@ -34,3 +26,17 @@ $(document).on 'keypress', '#message_content', (event) ->
 
 $(document).on 'click', '.destroy_message', ->
   App.room.destroy $(@).parents('.message').data('message-id')
+
+appendMessage = (data) ->
+  if data['action'] == 'create'
+    $('#messages').append data['message']
+
+destroyMessage = (data) ->
+  if data['action'] == 'destroy'
+    message = $("*[data-message-id=#{data['id']}]")
+    message.remove();
+
+updateMessage = (data) ->
+  if data['action'] == 'update'
+    message = $("*[data-message-id=#{data['id']}]")
+    message.html(data['message'])

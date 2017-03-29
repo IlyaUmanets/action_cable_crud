@@ -4,13 +4,17 @@ class RoomsController < ApplicationController
 
   private
 
+  def room
+    @room ||= Room.find(params[:id])
+  end
+
   def messages
-    @messages ||= Message.all
+    @messages ||= room.messages.all
   end
 
   def message
     @message ||= Message.new
   end
 
-  helper_method :messages, :message
+  helper_method :messages, :message, :room
 end
