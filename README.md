@@ -11,5 +11,5 @@ This app shows how manage actioncable easily and predictable.
 * `rake db:setup`
 * `rails s`
 
-Go to http://localhost:3000/rooms/1 and duplicate this tab to see changes dynamically.
+Go to http://localhost:3000 choose a room and duplicate this tab to see changes dynamically.
 Now you can create, remove (click X) and update message. Enjoy!
