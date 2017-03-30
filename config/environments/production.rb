@@ -21,5 +21,5 @@ Rails.application.configure do
   end
 
   config.active_record.dump_schema_after_migration = false
-  config.web_socket_server_url = ENV['PRODUCTION_CABLE_URL']
+  config.action_cable.url = ENV['PRODUCTION_CABLE_URL']
 end
