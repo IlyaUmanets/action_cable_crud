@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 class RoomsController < ApplicationController
+  def index; end
+
   def show; end
 
   private
+
+  def rooms
+    @rooms ||= Room.all
+  end
 
   def room
     @room ||= Room.find(params[:id])
@@ -16,5 +22,5 @@ class RoomsController < ApplicationController
     @message ||= Message.new
   end
 
-  helper_method :messages, :message, :room
+  helper_method :messages, :message, :room, :rooms
 end
