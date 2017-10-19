@@ -1,11 +1,9 @@
 Subject line
 
-What was changed?
+Why:
 
-Why were changes made?
+* Why do we need it ?
 
-How are the changes tested?
+How:
 
-Any potential concerns?
-
- Fixes #[GH Issue]
+* How did you implement it ?
