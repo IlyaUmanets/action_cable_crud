@@ -1,0 +1,13 @@
+Subject line
+
+Current behavior:
+  
+* Describe how the bug manifests.
+
+Expected behavior:
+
+* Describe what the behavior would be without the bug.
+
+Steps to reproduce:
+
+* A minimum working example
